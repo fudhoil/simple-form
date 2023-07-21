@@ -1,15 +1,15 @@
 "use client";
-
+import { FormEvent } from "react";
 import Row from "./Row";
 
 const Form = () => {
   console.log("Hanya sekali render, di client :)");
-  const handleSubmit = (event) => {
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const data = new FormData(event.target);
-    const dataObj = Object.fromEntries(data.entries());
+    const data = new FormData(event.target as HTMLFormElement);
+    const dataObj: any = Object.fromEntries(data.entries());
 
-    const outputData = {};
+    const outputData: any = {};
 
     for (const key in dataObj) {
       if (key.startsWith("nama-")) {
@@ -28,7 +28,7 @@ const Form = () => {
             .toString()
             .toLowerCase()
             .replace(/\s+/g, "_");
-          const score = parseInt(dataObj[scoreKey]);
+          const score: any = parseInt(dataObj[scoreKey]);
 
           outputData[aspectKey][studentName] = score;
         }
@@ -40,7 +40,7 @@ const Form = () => {
   return (
     <form
       className="flex flex-col items-center justify-center max-w-xl px-4 mx-auto text-center gap-3"
-      onSubmit={handleSubmit}>
+      onSubmit={(e) => handleSubmit}>
       <table className="table-auto" border={0}>
         <thead>
           <tr>
