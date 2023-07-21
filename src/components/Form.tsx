@@ -39,23 +39,23 @@ const Form = () => {
   };
   return (
     <form
-      className="flex flex-col items-center justify-center max-w-xl px-4 mx-auto text-center gap-3"
+      className="flex flex-col items-center justify-center max-w-2xl px-4 mx-auto text-center gap-3 overflow-hidden"
       onSubmit={handleSubmit}>
-      <table className="table-auto" border={0}>
-        <thead>
-          <tr>
-            <th className="px-4 py-2"></th>
-            <th className="px-4 py-2 font-normal">Aspek penilaian 1</th>
-            <th className="px-4 py-2 font-normal">Aspek penilaian 2</th>
-            <th className="px-4 py-2 font-normal">Aspek penilaian 3</th>
-            <th className="px-4 py-2 font-normal">Aspek penilaian 4</th>
-          </tr>
-        </thead>
-        <tbody>
-          {Array.from({ length: 10 }).map((_, index) => (
-            <Row key={index} name={`Mahasiswa ${index + 1}`} i={index + 1} />
-          ))}
-        </tbody>
+      <table
+        className="grid grid-cols-1"
+        style={{
+          gridTemplateColumns: "repeat(1, minmax(36rem, 1fr))",
+        }}>
+        <tr className="grid grid-cols-6 gap-2 text-center border w-full">
+          <th className="px-2 py-2 col-span-2"></th>
+          <th className="py-2 font-normal">Aspek penilaian 1</th>
+          <th className="py-2 font-normal">Aspek penilaian 2</th>
+          <th className="py-2 font-normal">Aspek penilaian 3</th>
+          <th className="py-2 font-normal">Aspek penilaian 4</th>
+        </tr>
+        {Array.from({ length: 10 }).map((_, index) => (
+          <Row key={index} name={`Mahasiswa ${index + 1}`} i={index + 1} />
+        ))}
       </table>
 
       {/* button */}
