@@ -3,6 +3,7 @@
 import Row from "./Row";
 
 const Form = () => {
+  console.log("Hanya sekali render, di client :)");
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.target);
