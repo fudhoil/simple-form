@@ -40,7 +40,7 @@ const Form = () => {
   return (
     <form
       className="flex flex-col items-center justify-center max-w-xl px-4 mx-auto text-center gap-3"
-      onSubmit={(e) => handleSubmit}>
+      onSubmit={handleSubmit}>
       <table className="table-auto" border={0}>
         <thead>
           <tr>
